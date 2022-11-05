@@ -97,3 +97,27 @@ class Dialogo_agregar_viajeros(QDialog):
         self.resultado = 0
         self.close()
         return self.resultado
+
+    def guardar2(self):
+            """
+            Esta función envía la información de que se han guardado los cambios
+            """   
+            idx = 0
+            for idx in range(len(self.lista_cajas_de_chequeo)):
+                checkbox = self.lista_cajas_de_chequeo[idx]
+                if checkbox.isChecked():
+                    self.viajeros[idx]["Presente"] = True
+                else:
+                    self.viajeros[idx]["Presente"] = False
+
+            self.resultado = 1
+            self.close()
+            return self.resultado
+    
+    def cancelar2(self):
+        """
+        Esta función envía la información de que se ha cancelado la operación
+        """ 
+        self.resultado = 0
+        self.close()
+        return self.resultado
